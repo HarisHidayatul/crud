@@ -27,17 +27,29 @@ return new class extends Migration
         Schema::create('paket_nasional', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_paket')->unique();
-            $table->string('paket',255);
-            $table->string('pagu',255);
-            $table->string('pengadaan',255);
-            $table->string('produk',255);
-            $table->string('usaha',255);
-            $table->string('metode',255);
-            $table->string('pemilihan',255);
-            $table->string('klpd',255);
-            
-            $table->string('satuan',255);
-            $table->string('lokasi',255);
+            $table->tinyInteger('idBulan');
+            $table->unsignedBigInteger('pagu');
+            $table->string('satuanKerja');
+            $table->string('isPDN');
+            $table->string('lokasi');
+            $table->unsignedBigInteger('idlokasi');
+            $table->string('idKldi');
+            $table->string('metode');
+            $table->string('kldi');
+            $table->string('isUMK');
+            $table->unsignedBigInteger('id_referensi');
+            $table->string('jenisPengadaan');
+            $table->string('pemilihan');
+            $table->unsignedBigInteger('idMetode');
+            $table->unsignedBigInteger('idJenisPengadaan');
+            $table->string('paket');
+            $table->timestamps();
+        });
+
+        Schema::create('last_update_data', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('start_data');
+            $table->unsignedBigInteger('end_data');
             $table->timestamps();
         });
     }
@@ -51,5 +63,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('personal_access_tokens');
         Schema::dropIfExists('paket_nasional');
+        Schema::dropIfExists('last_update_data');
     }
 };

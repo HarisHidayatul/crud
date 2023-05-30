@@ -12,18 +12,24 @@ class paket_nasional extends Model
     public $table = 'paket_nasional';
     public $guarded = ['id'];
     protected $primaryKey = 'id';
-    
+
     protected $fillable = [
         'id_paket',
-        'paket',
-        'pagu',
-        'pengadaan',
-        'produk',
-        'usaha',
-        'metode',
-        'pemilihan',
-        'klpd',
-        'satuan',
+        'idBulan',        
+        'pagu',     
+        'satuanKerja',            
+        'isPDN',      
+        'idLokasi',         
+        'idKldi',       
+        'metode',       
+        'kldi',     
+        'isUMK',      
+        'id_refrensi',            
+        'jenisPengadaan',               
+        'pemilihan',          
+        'idMetode',         
+        'idJenisPengadaan',
+        'paket',      
         'lokasi',
         'created_at',
         'updated_at'

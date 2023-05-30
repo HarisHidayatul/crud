@@ -31,3 +31,4 @@ Route::get('edit/{id}', [crud::class,'edit']);
 Route::delete('destroy/{id}', 'crud@hapus');
 
 Route::post('postPaketNasional',[crud::class,'createPaketNasional']);
+Route::get('updatePaketNasional',[crud::class,'getDataAPI']);
