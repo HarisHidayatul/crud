@@ -110,7 +110,6 @@ class crud extends Controller
 
         $response = Http::timeout(600)->withOptions([
             'verify' => false, // Matikan verifikasi sertifikat
-            'curl' => [CURLOPT_SSL_OPTIONS => constant('OPENSSL_SSL_OP_NO_RENEGOTIATION')],
         ])->get($urlAPI);
 
         if ($response->ok()) {
