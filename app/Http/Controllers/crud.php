@@ -108,7 +108,9 @@ class crud extends Controller
         $urlAPI .= $length;
         $urlAPI .= '&search%5Bvalue%5D=&search%5Bregex%5D=false';
 
-        $response = Http::timeout(600)->get($urlAPI);
+        $response = Http::timeout(600)->withOptions([
+            'verify' => false, // Matikan verifikasi sertifikat
+        ])->get($urlAPI);
 
         if ($response->ok()) {
             $lastUpdateDataNew = new last_update_data();
